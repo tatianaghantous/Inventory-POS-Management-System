@@ -56,14 +56,14 @@
             StoreNameLabel.Anchor = AnchorStyles.None;
             StoreNameLabel.AutoSize = true;
             StoreNameLabel.BackColor = Color.Transparent;
-            StoreNameLabel.Font = new Font("Sylfaen", 10F);
+            StoreNameLabel.Font = new Font("Sylfaen", 30F);
             StoreNameLabel.ForeColor = Color.FloralWhite;
-            StoreNameLabel.Location = new Point(495, 42);
+            StoreNameLabel.Location = new Point(417, 20);
             StoreNameLabel.Margin = new Padding(23, 13, 23, 13);
             StoreNameLabel.Name = "StoreNameLabel";
-            StoreNameLabel.Size = new Size(177, 22);
+            StoreNameLabel.Size = new Size(333, 66);
             StoreNameLabel.TabIndex = 1;
-            StoreNameLabel.Text = "GALAXY SAT Updated";
+            StoreNameLabel.Text = "GALAXY SAT";
             StoreNameLabel.TextAlign = ContentAlignment.TopCenter;
             StoreNameLabel.Click += StoreNameLabel_Click;
             // 
