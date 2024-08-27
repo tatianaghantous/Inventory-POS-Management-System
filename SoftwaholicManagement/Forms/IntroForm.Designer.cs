@@ -28,371 +28,370 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.StoreNameLabel = new System.Windows.Forms.Label();
-            this.unpaidOrdersButton = new System.Windows.Forms.Button();
-            this.logoutButton = new System.Windows.Forms.Button();
-            this.ReturnsBtn = new System.Windows.Forms.Button();
-            this.NewOrderBtn = new System.Windows.Forms.Button();
-            this.prevRButton = new System.Windows.Forms.Button();
-            this.dSButton = new System.Windows.Forms.Button();
-            this.servicesButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.promotionsButton = new System.Windows.Forms.Button();
-            this.AllOrdersBtn = new System.Windows.Forms.Button();
-            this.ProductsBtn = new System.Windows.Forms.Button();
-            this.InventoryBtn = new System.Windows.Forms.Button();
-            this.SuppliersBtn = new System.Windows.Forms.Button();
-            this.categoriesButton = new System.Windows.Forms.Button();
-            this.sellersButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.customersBtn = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.SuspendLayout();
+            StoreNameLabel = new Label();
+            unpaidOrdersButton = new Button();
+            logoutButton = new Button();
+            ReturnsBtn = new Button();
+            NewOrderBtn = new Button();
+            prevRButton = new Button();
+            dSButton = new Button();
+            servicesButton = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            promotionsButton = new Button();
+            AllOrdersBtn = new Button();
+            ProductsBtn = new Button();
+            InventoryBtn = new Button();
+            SuppliersBtn = new Button();
+            categoriesButton = new Button();
+            sellersButton = new Button();
+            button1 = new Button();
+            button3 = new Button();
+            customersBtn = new Button();
+            button4 = new Button();
+            tableLayoutPanel1.SuspendLayout();
+            SuspendLayout();
             // 
             // StoreNameLabel
             // 
-            this.StoreNameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.StoreNameLabel.AutoSize = true;
-            this.StoreNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.StoreNameLabel.Font = new System.Drawing.Font("Sylfaen", 30F);
-            this.StoreNameLabel.ForeColor = System.Drawing.Color.FloralWhite;
-            this.StoreNameLabel.Location = new System.Drawing.Point(417, 20);
-            this.StoreNameLabel.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.StoreNameLabel.Name = "StoreNameLabel";
-            this.StoreNameLabel.Size = new System.Drawing.Size(333, 66);
-            this.StoreNameLabel.TabIndex = 1;
-            this.StoreNameLabel.Text = "GALAXY SAT";
-            this.StoreNameLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.StoreNameLabel.Click += new System.EventHandler(this.StoreNameLabel_Click);
+            StoreNameLabel.Anchor = AnchorStyles.None;
+            StoreNameLabel.AutoSize = true;
+            StoreNameLabel.BackColor = Color.Transparent;
+            StoreNameLabel.Font = new Font("Sylfaen", 10F);
+            StoreNameLabel.ForeColor = Color.FloralWhite;
+            StoreNameLabel.Location = new Point(495, 42);
+            StoreNameLabel.Margin = new Padding(23, 13, 23, 13);
+            StoreNameLabel.Name = "StoreNameLabel";
+            StoreNameLabel.Size = new Size(177, 22);
+            StoreNameLabel.TabIndex = 1;
+            StoreNameLabel.Text = "GALAXY SAT Updated";
+            StoreNameLabel.TextAlign = ContentAlignment.TopCenter;
+            StoreNameLabel.Click += StoreNameLabel_Click;
             // 
             // unpaidOrdersButton
             // 
-            this.unpaidOrdersButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.unpaidOrdersButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.unpaidOrdersButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.unpaidOrdersButton.ForeColor = System.Drawing.Color.Black;
-            this.unpaidOrdersButton.Location = new System.Drawing.Point(103, 652);
-            this.unpaidOrdersButton.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.unpaidOrdersButton.Name = "unpaidOrdersButton";
-            this.unpaidOrdersButton.Size = new System.Drawing.Size(183, 80);
-            this.unpaidOrdersButton.TabIndex = 17;
-            this.unpaidOrdersButton.Text = "Unpaid Orders";
-            this.unpaidOrdersButton.UseVisualStyleBackColor = false;
-            this.unpaidOrdersButton.Click += new System.EventHandler(this.unpaidOrdersButton_Click);
+            unpaidOrdersButton.Anchor = AnchorStyles.None;
+            unpaidOrdersButton.BackColor = SystemColors.ButtonFace;
+            unpaidOrdersButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            unpaidOrdersButton.ForeColor = Color.Black;
+            unpaidOrdersButton.Location = new Point(103, 652);
+            unpaidOrdersButton.Margin = new Padding(23, 13, 23, 13);
+            unpaidOrdersButton.Name = "unpaidOrdersButton";
+            unpaidOrdersButton.Size = new Size(183, 80);
+            unpaidOrdersButton.TabIndex = 17;
+            unpaidOrdersButton.Text = "Unpaid Orders";
+            unpaidOrdersButton.UseVisualStyleBackColor = false;
+            unpaidOrdersButton.Click += unpaidOrdersButton_Click;
             // 
             // logoutButton
             // 
-            this.logoutButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.logoutButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.logoutButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.logoutButton.ForeColor = System.Drawing.Color.Black;
-            this.logoutButton.Location = new System.Drawing.Point(881, 652);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(183, 80);
-            this.logoutButton.TabIndex = 16;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = false;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            logoutButton.Anchor = AnchorStyles.None;
+            logoutButton.BackColor = SystemColors.ButtonFace;
+            logoutButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            logoutButton.ForeColor = Color.Black;
+            logoutButton.Location = new Point(881, 652);
+            logoutButton.Margin = new Padding(23, 13, 23, 13);
+            logoutButton.Name = "logoutButton";
+            logoutButton.Size = new Size(183, 80);
+            logoutButton.TabIndex = 16;
+            logoutButton.Text = "Logout";
+            logoutButton.UseVisualStyleBackColor = false;
+            logoutButton.Click += logoutButton_Click;
             // 
             // ReturnsBtn
             // 
-            this.ReturnsBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ReturnsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReturnsBtn.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.ReturnsBtn.ForeColor = System.Drawing.Color.Black;
-            this.ReturnsBtn.Location = new System.Drawing.Point(412, 119);
-            this.ReturnsBtn.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.ReturnsBtn.Name = "ReturnsBtn";
-            this.ReturnsBtn.Size = new System.Drawing.Size(343, 80);
-            this.ReturnsBtn.TabIndex = 14;
-            this.ReturnsBtn.Text = "New Returns";
-            this.ReturnsBtn.UseVisualStyleBackColor = false;
-            this.ReturnsBtn.Click += new System.EventHandler(this.ReturnsBtn_Click);
+            ReturnsBtn.BackColor = SystemColors.ButtonFace;
+            ReturnsBtn.Dock = DockStyle.Fill;
+            ReturnsBtn.Font = new Font("Segoe UI", 20F);
+            ReturnsBtn.ForeColor = Color.Black;
+            ReturnsBtn.Location = new Point(412, 119);
+            ReturnsBtn.Margin = new Padding(23, 13, 23, 13);
+            ReturnsBtn.Name = "ReturnsBtn";
+            ReturnsBtn.Size = new Size(343, 80);
+            ReturnsBtn.TabIndex = 14;
+            ReturnsBtn.Text = "New Returns";
+            ReturnsBtn.UseVisualStyleBackColor = false;
+            ReturnsBtn.Click += ReturnsBtn_Click;
             // 
             // NewOrderBtn
             // 
-            this.NewOrderBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.NewOrderBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NewOrderBtn.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.NewOrderBtn.ForeColor = System.Drawing.Color.Black;
-            this.NewOrderBtn.Location = new System.Drawing.Point(23, 119);
-            this.NewOrderBtn.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.NewOrderBtn.Name = "NewOrderBtn";
-            this.NewOrderBtn.Size = new System.Drawing.Size(343, 80);
-            this.NewOrderBtn.TabIndex = 10;
-            this.NewOrderBtn.Text = "New Order";
-            this.NewOrderBtn.UseVisualStyleBackColor = false;
-            this.NewOrderBtn.Click += new System.EventHandler(this.NewOrderBtn_Click);
+            NewOrderBtn.BackColor = SystemColors.ButtonFace;
+            NewOrderBtn.Dock = DockStyle.Fill;
+            NewOrderBtn.Font = new Font("Segoe UI", 20F);
+            NewOrderBtn.ForeColor = Color.Black;
+            NewOrderBtn.Location = new Point(23, 119);
+            NewOrderBtn.Margin = new Padding(23, 13, 23, 13);
+            NewOrderBtn.Name = "NewOrderBtn";
+            NewOrderBtn.Size = new Size(343, 80);
+            NewOrderBtn.TabIndex = 10;
+            NewOrderBtn.Text = "New Order";
+            NewOrderBtn.UseVisualStyleBackColor = false;
+            NewOrderBtn.Click += NewOrderBtn_Click;
             // 
             // prevRButton
             // 
-            this.prevRButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.prevRButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.prevRButton.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.prevRButton.ForeColor = System.Drawing.Color.Black;
-            this.prevRButton.Location = new System.Drawing.Point(412, 331);
-            this.prevRButton.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.prevRButton.Name = "prevRButton";
-            this.prevRButton.Size = new System.Drawing.Size(343, 80);
-            this.prevRButton.TabIndex = 19;
-            this.prevRButton.Text = "Previous Returns";
-            this.prevRButton.UseVisualStyleBackColor = false;
+            prevRButton.BackColor = SystemColors.ButtonFace;
+            prevRButton.Dock = DockStyle.Fill;
+            prevRButton.Font = new Font("Segoe UI", 20F);
+            prevRButton.ForeColor = Color.Black;
+            prevRButton.Location = new Point(412, 331);
+            prevRButton.Margin = new Padding(23, 13, 23, 13);
+            prevRButton.Name = "prevRButton";
+            prevRButton.Size = new Size(343, 80);
+            prevRButton.TabIndex = 19;
+            prevRButton.Text = "Previous Returns";
+            prevRButton.UseVisualStyleBackColor = false;
             // 
             // dSButton
             // 
-            this.dSButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.dSButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dSButton.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.dSButton.ForeColor = System.Drawing.Color.Black;
-            this.dSButton.Location = new System.Drawing.Point(23, 331);
-            this.dSButton.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.dSButton.Name = "dSButton";
-            this.dSButton.Size = new System.Drawing.Size(343, 80);
-            this.dSButton.TabIndex = 20;
-            this.dSButton.Text = "Daily Sales";
-            this.dSButton.UseVisualStyleBackColor = false;
+            dSButton.BackColor = SystemColors.ButtonFace;
+            dSButton.Dock = DockStyle.Fill;
+            dSButton.Font = new Font("Segoe UI", 20F);
+            dSButton.ForeColor = Color.Black;
+            dSButton.Location = new Point(23, 331);
+            dSButton.Margin = new Padding(23, 13, 23, 13);
+            dSButton.Name = "dSButton";
+            dSButton.Size = new Size(343, 80);
+            dSButton.TabIndex = 20;
+            dSButton.Text = "Daily Sales";
+            dSButton.UseVisualStyleBackColor = false;
             // 
             // servicesButton
             // 
-            this.servicesButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.servicesButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.servicesButton.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.servicesButton.ForeColor = System.Drawing.Color.Black;
-            this.servicesButton.Location = new System.Drawing.Point(412, 225);
-            this.servicesButton.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.servicesButton.Name = "servicesButton";
-            this.servicesButton.Size = new System.Drawing.Size(343, 80);
-            this.servicesButton.TabIndex = 23;
-            this.servicesButton.Text = "Services";
-            this.servicesButton.UseVisualStyleBackColor = false;
-            this.servicesButton.Click += new System.EventHandler(this.servicesButton_Click);
+            servicesButton.BackColor = SystemColors.ButtonFace;
+            servicesButton.Dock = DockStyle.Fill;
+            servicesButton.Font = new Font("Segoe UI", 20F);
+            servicesButton.ForeColor = Color.Black;
+            servicesButton.Location = new Point(412, 225);
+            servicesButton.Margin = new Padding(23, 13, 23, 13);
+            servicesButton.Name = "servicesButton";
+            servicesButton.Size = new Size(343, 80);
+            servicesButton.TabIndex = 23;
+            servicesButton.Text = "Services";
+            servicesButton.UseVisualStyleBackColor = false;
+            servicesButton.Click += servicesButton_Click;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(58)))), ((int)(((byte)(81)))));
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.prevRButton, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.promotionsButton, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.dSButton, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.AllOrdersBtn, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.NewOrderBtn, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.ProductsBtn, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.InventoryBtn, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.SuppliersBtn, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.categoriesButton, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.sellersButton, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.servicesButton, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.ReturnsBtn, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.StoreNameLabel, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.logoutButton, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.customersBtn, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.unpaidOrdersButton, 0, 6);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1168, 749);
-            this.tableLayoutPanel1.TabIndex = 24;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint_1);
+            tableLayoutPanel1.BackColor = Color.FromArgb(55, 58, 81);
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
+            tableLayoutPanel1.Controls.Add(prevRButton, 1, 3);
+            tableLayoutPanel1.Controls.Add(promotionsButton, 0, 4);
+            tableLayoutPanel1.Controls.Add(dSButton, 0, 3);
+            tableLayoutPanel1.Controls.Add(AllOrdersBtn, 0, 2);
+            tableLayoutPanel1.Controls.Add(NewOrderBtn, 0, 1);
+            tableLayoutPanel1.Controls.Add(ProductsBtn, 2, 1);
+            tableLayoutPanel1.Controls.Add(InventoryBtn, 2, 2);
+            tableLayoutPanel1.Controls.Add(SuppliersBtn, 2, 4);
+            tableLayoutPanel1.Controls.Add(categoriesButton, 2, 3);
+            tableLayoutPanel1.Controls.Add(sellersButton, 1, 4);
+            tableLayoutPanel1.Controls.Add(servicesButton, 1, 2);
+            tableLayoutPanel1.Controls.Add(ReturnsBtn, 1, 1);
+            tableLayoutPanel1.Controls.Add(StoreNameLabel, 1, 0);
+            tableLayoutPanel1.Controls.Add(logoutButton, 2, 6);
+            tableLayoutPanel1.Controls.Add(button1, 1, 6);
+            tableLayoutPanel1.Controls.Add(button3, 2, 5);
+            tableLayoutPanel1.Controls.Add(customersBtn, 1, 5);
+            tableLayoutPanel1.Controls.Add(button4, 0, 5);
+            tableLayoutPanel1.Controls.Add(unpaidOrdersButton, 0, 6);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 7;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.28571F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.28571F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.28571F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.28571F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.28571F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.28571F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.28571F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(1168, 749);
+            tableLayoutPanel1.TabIndex = 24;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint_1;
             // 
             // promotionsButton
             // 
-            this.promotionsButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.promotionsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.promotionsButton.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.promotionsButton.ForeColor = System.Drawing.Color.Black;
-            this.promotionsButton.Location = new System.Drawing.Point(23, 437);
-            this.promotionsButton.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.promotionsButton.Name = "promotionsButton";
-            this.promotionsButton.Size = new System.Drawing.Size(343, 80);
-            this.promotionsButton.TabIndex = 18;
-            this.promotionsButton.Text = "Promotions";
-            this.promotionsButton.UseVisualStyleBackColor = false;
-            this.promotionsButton.Click += new System.EventHandler(this.categoriesButton_Click);
+            promotionsButton.BackColor = SystemColors.ButtonFace;
+            promotionsButton.Dock = DockStyle.Fill;
+            promotionsButton.Font = new Font("Segoe UI", 20F);
+            promotionsButton.ForeColor = Color.Black;
+            promotionsButton.Location = new Point(23, 437);
+            promotionsButton.Margin = new Padding(23, 13, 23, 13);
+            promotionsButton.Name = "promotionsButton";
+            promotionsButton.Size = new Size(343, 80);
+            promotionsButton.TabIndex = 18;
+            promotionsButton.Text = "Promotions";
+            promotionsButton.UseVisualStyleBackColor = false;
+            promotionsButton.Click += categoriesButton_Click;
             // 
             // AllOrdersBtn
             // 
-            this.AllOrdersBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.AllOrdersBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AllOrdersBtn.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.AllOrdersBtn.ForeColor = System.Drawing.Color.Black;
-            this.AllOrdersBtn.Location = new System.Drawing.Point(23, 225);
-            this.AllOrdersBtn.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.AllOrdersBtn.Name = "AllOrdersBtn";
-            this.AllOrdersBtn.Size = new System.Drawing.Size(343, 80);
-            this.AllOrdersBtn.TabIndex = 11;
-            this.AllOrdersBtn.Text = "All Orders";
-            this.AllOrdersBtn.UseVisualStyleBackColor = false;
-            this.AllOrdersBtn.Click += new System.EventHandler(this.AllOrdersBtn_Click);
+            AllOrdersBtn.BackColor = SystemColors.ButtonFace;
+            AllOrdersBtn.Dock = DockStyle.Fill;
+            AllOrdersBtn.Font = new Font("Segoe UI", 20F);
+            AllOrdersBtn.ForeColor = Color.Black;
+            AllOrdersBtn.Location = new Point(23, 225);
+            AllOrdersBtn.Margin = new Padding(23, 13, 23, 13);
+            AllOrdersBtn.Name = "AllOrdersBtn";
+            AllOrdersBtn.Size = new Size(343, 80);
+            AllOrdersBtn.TabIndex = 11;
+            AllOrdersBtn.Text = "All Orders";
+            AllOrdersBtn.UseVisualStyleBackColor = false;
+            AllOrdersBtn.Click += AllOrdersBtn_Click;
             // 
             // ProductsBtn
             // 
-            this.ProductsBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ProductsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProductsBtn.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.ProductsBtn.ForeColor = System.Drawing.Color.Black;
-            this.ProductsBtn.Location = new System.Drawing.Point(801, 119);
-            this.ProductsBtn.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.ProductsBtn.Name = "ProductsBtn";
-            this.ProductsBtn.Size = new System.Drawing.Size(344, 80);
-            this.ProductsBtn.TabIndex = 15;
-            this.ProductsBtn.Text = "Products";
-            this.ProductsBtn.UseVisualStyleBackColor = false;
-            this.ProductsBtn.Click += new System.EventHandler(this.ProductsBtn_Click);
+            ProductsBtn.BackColor = SystemColors.ButtonFace;
+            ProductsBtn.Dock = DockStyle.Fill;
+            ProductsBtn.Font = new Font("Segoe UI", 20F);
+            ProductsBtn.ForeColor = Color.Black;
+            ProductsBtn.Location = new Point(801, 119);
+            ProductsBtn.Margin = new Padding(23, 13, 23, 13);
+            ProductsBtn.Name = "ProductsBtn";
+            ProductsBtn.Size = new Size(344, 80);
+            ProductsBtn.TabIndex = 15;
+            ProductsBtn.Text = "Products";
+            ProductsBtn.UseVisualStyleBackColor = false;
+            ProductsBtn.Click += ProductsBtn_Click;
             // 
             // InventoryBtn
             // 
-            this.InventoryBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.InventoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InventoryBtn.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.InventoryBtn.ForeColor = System.Drawing.Color.Black;
-            this.InventoryBtn.Location = new System.Drawing.Point(801, 225);
-            this.InventoryBtn.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.InventoryBtn.Name = "InventoryBtn";
-            this.InventoryBtn.Size = new System.Drawing.Size(344, 80);
-            this.InventoryBtn.TabIndex = 12;
-            this.InventoryBtn.Text = "Inventory";
-            this.InventoryBtn.UseVisualStyleBackColor = false;
-            this.InventoryBtn.Click += new System.EventHandler(this.InventoryBtn_Click);
+            InventoryBtn.BackColor = SystemColors.ButtonFace;
+            InventoryBtn.Dock = DockStyle.Fill;
+            InventoryBtn.Font = new Font("Segoe UI", 20F);
+            InventoryBtn.ForeColor = Color.Black;
+            InventoryBtn.Location = new Point(801, 225);
+            InventoryBtn.Margin = new Padding(23, 13, 23, 13);
+            InventoryBtn.Name = "InventoryBtn";
+            InventoryBtn.Size = new Size(344, 80);
+            InventoryBtn.TabIndex = 12;
+            InventoryBtn.Text = "Inventory";
+            InventoryBtn.UseVisualStyleBackColor = false;
+            InventoryBtn.Click += InventoryBtn_Click;
             // 
             // SuppliersBtn
             // 
-            this.SuppliersBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.SuppliersBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SuppliersBtn.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.SuppliersBtn.ForeColor = System.Drawing.Color.Black;
-            this.SuppliersBtn.Location = new System.Drawing.Point(801, 437);
-            this.SuppliersBtn.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.SuppliersBtn.Name = "SuppliersBtn";
-            this.SuppliersBtn.Size = new System.Drawing.Size(344, 80);
-            this.SuppliersBtn.TabIndex = 13;
-            this.SuppliersBtn.Text = "Suppliers";
-            this.SuppliersBtn.UseVisualStyleBackColor = false;
-            this.SuppliersBtn.Click += new System.EventHandler(this.SuppliersBtn_Click);
+            SuppliersBtn.BackColor = SystemColors.ButtonFace;
+            SuppliersBtn.Dock = DockStyle.Fill;
+            SuppliersBtn.Font = new Font("Segoe UI", 20F);
+            SuppliersBtn.ForeColor = Color.Black;
+            SuppliersBtn.Location = new Point(801, 437);
+            SuppliersBtn.Margin = new Padding(23, 13, 23, 13);
+            SuppliersBtn.Name = "SuppliersBtn";
+            SuppliersBtn.Size = new Size(344, 80);
+            SuppliersBtn.TabIndex = 13;
+            SuppliersBtn.Text = "Suppliers";
+            SuppliersBtn.UseVisualStyleBackColor = false;
+            SuppliersBtn.Click += SuppliersBtn_Click;
             // 
             // categoriesButton
             // 
-            this.categoriesButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.categoriesButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.categoriesButton.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.categoriesButton.ForeColor = System.Drawing.Color.Black;
-            this.categoriesButton.Location = new System.Drawing.Point(801, 331);
-            this.categoriesButton.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.categoriesButton.Name = "categoriesButton";
-            this.categoriesButton.Size = new System.Drawing.Size(344, 80);
-            this.categoriesButton.TabIndex = 21;
-            this.categoriesButton.Text = "Categories";
-            this.categoriesButton.UseVisualStyleBackColor = false;
-            this.categoriesButton.Click += new System.EventHandler(this.categoriesButton_Click);
+            categoriesButton.BackColor = SystemColors.ButtonFace;
+            categoriesButton.Dock = DockStyle.Fill;
+            categoriesButton.Font = new Font("Segoe UI", 20F);
+            categoriesButton.ForeColor = Color.Black;
+            categoriesButton.Location = new Point(801, 331);
+            categoriesButton.Margin = new Padding(23, 13, 23, 13);
+            categoriesButton.Name = "categoriesButton";
+            categoriesButton.Size = new Size(344, 80);
+            categoriesButton.TabIndex = 21;
+            categoriesButton.Text = "Categories";
+            categoriesButton.UseVisualStyleBackColor = false;
+            categoriesButton.Click += categoriesButton_Click;
             // 
             // sellersButton
             // 
-            this.sellersButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.sellersButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sellersButton.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.sellersButton.ForeColor = System.Drawing.Color.Black;
-            this.sellersButton.Location = new System.Drawing.Point(412, 437);
-            this.sellersButton.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.sellersButton.Name = "sellersButton";
-            this.sellersButton.Size = new System.Drawing.Size(343, 80);
-            this.sellersButton.TabIndex = 22;
-            this.sellersButton.Text = "Sellers";
-            this.sellersButton.UseVisualStyleBackColor = false;
+            sellersButton.BackColor = SystemColors.ButtonFace;
+            sellersButton.Dock = DockStyle.Fill;
+            sellersButton.Font = new Font("Segoe UI", 20F);
+            sellersButton.ForeColor = Color.Black;
+            sellersButton.Location = new Point(412, 437);
+            sellersButton.Margin = new Padding(23, 13, 23, 13);
+            sellersButton.Name = "sellersButton";
+            sellersButton.Size = new Size(343, 80);
+            sellersButton.TabIndex = 22;
+            sellersButton.Text = "Sellers";
+            sellersButton.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(492, 652);
-            this.button1.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(183, 80);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Check-In Check-Out";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.checkInButton_Click);
+            button1.Anchor = AnchorStyles.None;
+            button1.BackColor = SystemColors.ButtonFace;
+            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(492, 652);
+            button1.Margin = new Padding(23, 13, 23, 13);
+            button1.Name = "button1";
+            button1.Size = new Size(183, 80);
+            button1.TabIndex = 24;
+            button1.Text = "Check-In Check-Out";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += checkInButton_Click;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(801, 543);
-            this.button3.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(344, 80);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "Purchases";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.BackColor = SystemColors.ButtonFace;
+            button3.Dock = DockStyle.Fill;
+            button3.Font = new Font("Segoe UI", 20F);
+            button3.ForeColor = Color.Black;
+            button3.Location = new Point(801, 543);
+            button3.Margin = new Padding(23, 13, 23, 13);
+            button3.Name = "button3";
+            button3.Size = new Size(344, 80);
+            button3.TabIndex = 27;
+            button3.Text = "Purchases";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // customersBtn
             // 
-            this.customersBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.customersBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customersBtn.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.customersBtn.ForeColor = System.Drawing.Color.Black;
-            this.customersBtn.Location = new System.Drawing.Point(412, 543);
-            this.customersBtn.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.customersBtn.Name = "customersBtn";
-            this.customersBtn.Size = new System.Drawing.Size(343, 80);
-            this.customersBtn.TabIndex = 26;
-            this.customersBtn.Text = "Customers";
-            this.customersBtn.UseVisualStyleBackColor = false;
-            this.customersBtn.Click += new System.EventHandler(this.customersBtn_Click);
+            customersBtn.BackColor = SystemColors.ButtonFace;
+            customersBtn.Dock = DockStyle.Fill;
+            customersBtn.Font = new Font("Segoe UI", 20F);
+            customersBtn.ForeColor = Color.Black;
+            customersBtn.Location = new Point(412, 543);
+            customersBtn.Margin = new Padding(23, 13, 23, 13);
+            customersBtn.Name = "customersBtn";
+            customersBtn.Size = new Size(343, 80);
+            customersBtn.TabIndex = 26;
+            customersBtn.Text = "Customers";
+            customersBtn.UseVisualStyleBackColor = false;
+            customersBtn.Click += customersBtn_Click;
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(23, 543);
-            this.button4.Margin = new System.Windows.Forms.Padding(23, 13, 23, 13);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(343, 80);
-            this.button4.TabIndex = 29;
-            this.button4.Text = "Currency";
-            this.button4.UseVisualStyleBackColor = false;
+            button4.BackColor = SystemColors.ButtonFace;
+            button4.Dock = DockStyle.Fill;
+            button4.Font = new Font("Segoe UI", 20F);
+            button4.ForeColor = Color.Black;
+            button4.Location = new Point(23, 543);
+            button4.Margin = new Padding(23, 13, 23, 13);
+            button4.Name = "button4";
+            button4.Size = new Size(343, 80);
+            button4.TabIndex = 29;
+            button4.Text = "Currency";
+            button4.UseVisualStyleBackColor = false;
             // 
             // IntroForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InfoText;
-            this.ClientSize = new System.Drawing.Size(1168, 749);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "IntroForm";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.IntroForm1_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InfoText;
+            ClientSize = new Size(1168, 749);
+            Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Name = "IntroForm";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            WindowState = FormWindowState.Maximized;
+            Load += IntroForm1_Load;
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
