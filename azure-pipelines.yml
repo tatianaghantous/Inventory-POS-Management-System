@@ -1,0 +1,58 @@
+trigger:
+  - master
+  - main
+
+pool:
+  vmImage: windows-latest
+  
+
+
+variables:
+- group: "velopack publish"
+
+stages:
+  - stage: PreBuild
+    jobs:
+      - job: Initialize             
+              
+        steps:
+        
+          - bash: |            
+              echo "Architecture: win-x64, Bucket Name: $(bucketname), Minio-Ip:$(minio-ip-port) ,Minio Key ID: $(minio-keyId), Minio Secret: $(minio-secret)"
+            displayName: 'Set Variable Based on Condition'
+   
+
+          - checkout: self
+            path: s
+            fetchDepth: 1  # Shallow fetch to only get the last commit
+            clean: true
+    
+
+          - task: UseDotNet@2
+            inputs:
+              packageType: 'sdk'
+              version: '8.0.x'
+            displayName: 'Install .NET'
+  
+          - task: DotNetCoreCLI@2
+            inputs:
+             command: 'restore'
+             projects: 'SoftwaholicManagement/SM.csproj'
+
+          - script: dotnet clean SoftwaholicManagement\SM.csproj
+            displayName: 'Clean Project'
+            workingDirectory: 'D:\a\1\s'
+
+          - script: dotnet build --configuration Release SoftwaholicManagement\SM.csproj  
+            displayName: 'Build Solution'
+            workingDirectory: 'D:\a\1\s'
+            
+          - script: |          
+              dotnet tool install --global vpk --version 0.0.359 
+              dotnet publish SoftwaholicManagement/SM.csproj  -c Release  -o SoftwaholicManagement/bin/publish/win-x64 -r win-x64  --self-contained true
+              vpk download s3  --bucket  $(bucketname)  --channel win-x64 --endpoint $(minio-ip-port)  --keyId $(minio-keyId)  --secret $(minio-secret)
+              vpk pack  -u SoftwaholicManagement -v 1.0.0  -p SoftwaholicManagement/bin/publish/win-x64  -e SoftwaholicManagement.exe  --channel win-x64  --packTitle "Softwaholic"  --verbose
+              vpk upload s3  --bucket  $(bucketname)  --channel win-x64 --endpoint $(minio-ip-port)  --keyId $(minio-keyId)  --secret $(minio-secret)
+            displayName: 'Create and Upload Velopack Release'
+            env:
+              PATH: $(PATH):$(USERPROFILE)\.dotnet\tools
