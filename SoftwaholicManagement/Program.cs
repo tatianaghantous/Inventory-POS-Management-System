@@ -45,9 +45,13 @@ namespace SM
             Application.ThreadException += new ThreadExceptionEventHandler(GlobalExceptionHandler);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(GlobalExceptionHandler);
             EnsureDirectoriesExist();
+            ClothingStoreContext context = new ClothingStoreContext();
+            using (var _context = new ClothingStoreContext())
+            {
+                DatabaseInitializer.Initialize(_context);
+            }
             ApplicationConfiguration.Initialize();
 
-            ClothingStoreContext context = new ClothingStoreContext();
 
             CachingItems(context);
 
