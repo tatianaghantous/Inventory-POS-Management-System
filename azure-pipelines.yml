@@ -51,7 +51,7 @@ stages:
               dotnet tool install --global vpk --version 0.0.359 
               dotnet publish SoftwaholicManagement/SM.csproj  -c Release  -o SoftwaholicManagement/bin/publish/win-x64 -r win-x64  --self-contained true
               vpk download s3  --bucket  $(bucketname)  --channel win-x64 --endpoint $(minio-ip-port)  --keyId $(minio-keyId)  --secret $(minio-secret)
-              vpk pack  -u SoftwaholicManagement -v 1.0.0  -p SoftwaholicManagement/bin/publish/win-x64  -e SoftwaholicManagement.exe  --channel win-x64  --packTitle "Softwaholic"  --verbose
+              vpk pack  -u SoftwaholicManagement -v 1.0.0  -p SoftwaholicManagement/bin/publish/win-x64  -e SM.exe  --channel win-x64  --packTitle "Softwaholic"  --verbose
               vpk upload s3  --bucket  $(bucketname)  --channel win-x64 --endpoint $(minio-ip-port)  --keyId $(minio-keyId)  --secret $(minio-secret)
             displayName: 'Create and Upload Velopack Release'
             env:
