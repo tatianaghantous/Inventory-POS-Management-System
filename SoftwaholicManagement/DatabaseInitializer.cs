@@ -15,5 +15,6 @@ namespace SM
             // Ensure the database is up-to-date and create it if it does not exist
             context.Database.Migrate();  // This will apply any pending migrations and create the database if it doesn't exist
         }
+
     }
 }
