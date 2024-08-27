@@ -37,21 +37,21 @@ stages:
           - task: DotNetCoreCLI@2
             inputs:
              command: 'restore'
-             projects: 'SoftwaholicManagement/SM.csproj'
+             projects: 'SoftwaholicManagement/Softwaholic.csproj'
 
-          - script: dotnet clean SoftwaholicManagement\SM.csproj
+          - script: dotnet clean SoftwaholicManagement\Softwaholic.csproj
             displayName: 'Clean Project'
             workingDirectory: 'D:\a\1\s'
 
-          - script: dotnet build --configuration Release SoftwaholicManagement\SM.csproj  
+          - script: dotnet build --configuration Release SoftwaholicManagement\Softwaholic.csproj  
             displayName: 'Build Solution'
             workingDirectory: 'D:\a\1\s'
             
           - script: |          
               dotnet tool install --global vpk --version 0.0.359 
-              dotnet publish SoftwaholicManagement/SM.csproj  -c Release  -o SoftwaholicManagement/bin/publish/win-x64 -r win-x64  --self-contained true
+              dotnet publish SoftwaholicManagement/Softwaholic.csproj  -c Release  -o SoftwaholicManagement/bin/publish/win-x64 -r win-x64  --self-contained true
               vpk download s3  --bucket  $(bucketname)  --channel win-x64 --endpoint $(minio-ip-port)  --keyId $(minio-keyId)  --secret $(minio-secret)
-              vpk pack  -u SoftwaholicManagement -v 1.0.0  -p SoftwaholicManagement/bin/publish/win-x64  -e SM.exe  --channel win-x64  --packTitle "Softwaholic"  --verbose
+              vpk pack  -u Softwaholic -v 1.0.0  -p SoftwaholicManagement/bin/publish/win-x64  -e Softwaholic.exe  --channel win-x64  --packTitle "Softwaholic"  --verbose
               vpk upload s3  --bucket  $(bucketname)  --channel win-x64 --endpoint $(minio-ip-port)  --keyId $(minio-keyId)  --secret $(minio-secret)
             displayName: 'Create and Upload Velopack Release'
             env:
