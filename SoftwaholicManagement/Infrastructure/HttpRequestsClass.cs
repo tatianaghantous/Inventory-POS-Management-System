@@ -1,6 +1,8 @@
-﻿using Microsoft.Identity.Client;
+﻿using Azure;
+using Microsoft.Identity.Client;
 using SM;
 using SM.Common_Functions;
+using SMDataLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,123 +22,151 @@ namespace SM.Infrastructure
         //BackUP
         public static async Task<bool> UploadBackupFileAsync()
         {
-
-                bool result;
-
-                string ticketID = EncryptionService.GetDecryptedKeyValue(SettingsSql.EnumSettingKey.TicketId.ToString());
-
-                if (ticketID == null)
-                    return false;
-
-                string dbPath = ApplicationCache.DatabasePath;
-                string NewBackFile = "SoftwaholicBackUp.db";
-                string BackUpDBPath = $"{ApplicationCache.DirectoryFolder}\\{NewBackFile}";
-
-                if (!string.IsNullOrEmpty(dbPath) && File.Exists(dbPath))
-                {
-                    File.Copy(dbPath, BackUpDBPath, true);
-                }
-
-                using (var client = new HttpClient())
-                {
-                    // Create Multipart Content
-                    using (var content = new MultipartFormDataContent())
-                    {
-                        //string requestUri = $"{AppConfig.Configuration["api-url"]}?TicketId=123&branchName={AppConfig.GetBucketName()}";
-                        string requestUri = $"{BaseAddress}/Backup/Backup()?TicketId={ticketID}&branchName={AppConfig.GetBucketName()}";
-
-
-                        var fileContent = new StreamContent(File.OpenRead(BackUpDBPath));
-                        fileContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                        content.Add(fileContent, "backupFile", NewBackFile);
-
-                        // Send POST request6
-                        var response = await client.PostAsync(requestUri, content);
-
-                        // Check if the response is successful
-                        if (response.IsSuccessStatusCode)
-                        {
-                            // Optionally read the response
-                            await response.Content.ReadAsStringAsync();
-                            result = true;
-                        }
-                        else
-                        {
-                            result = false;
-                        }
-                    }
-                }
-                File.Delete(BackUpDBPath);
-                return result;
-        }
-
-
-
-        //logs
-        public static async Task CheckAndProcessLogs()
-        {
-            if (RandomFunctions.IsInternetAvailable())
+            string dbDir = ApplicationCache.DirectoryFolder;
+            if (Directory.Exists(dbDir))
             {
-                string ticketID = EncryptionService.GetDecryptedKeyValue(SettingsSql.EnumSettingKey.TicketId.ToString());
-
-                if (ticketID == null)
-                    return;
-
-
-                string logDirectoryPath = ApplicationCache.DirectoryFolder;
-
-                // Ensure the directory exists to avoid runtime exceptions
-                if (Directory.Exists(logDirectoryPath))
+                if (RandomFunctions.IsInternetAvailable())
                 {
-                    // Get all .json files in the directory
-                    string[] logFiles = Directory.GetFiles(logDirectoryPath, "*.json");
+                    bool result;
 
-                    // Process each file
-                    foreach (string filePath in logFiles)
+                    string ticketID = EncryptionService.GetDecryptedKeyValue(SettingsSql.EnumSettingKey.TicketId.ToString());
+
+                    if (ticketID == null)
+                        return false;
+
+                    string dbPath = ApplicationCache.DatabasePath;
+
+                    string NewBackFile = "SoftwaholicBackUp.db";
+                    string BackUpDBPath = $"{ApplicationCache.DirectoryFolder}\\{NewBackFile}";
+
+                    if (!string.IsNullOrEmpty(dbPath) && File.Exists(dbPath))
                     {
-                        HttpResponseMessage response = null;
-                        using (var client = new HttpClient())
+                        File.Copy(dbPath, BackUpDBPath, true);
+                    }
+                    HttpResponseMessage response = null;
+                    using (var client = new HttpClient())
+                    {
+                        // Create Multipart Content
+                        using (var content = new MultipartFormDataContent())
                         {
-                            Thread.Sleep(190000); // 50,000 milliseconds = 50 seconds
-                            // Create Multipart Content
-                            using (var content = new MultipartFormDataContent())
-                            {
-                                //string requestUri = $"{AppConfig.Configuration["api-url"]}?TicketId=123&branchName={AppConfig.GetBucketName()}";
-                                string requestUri = $"{BaseAddress}/Backup/Log()?TicketId={ticketID}&branchName={AppConfig.GetBucketName()}";
-                                try
-                                {
-
-                                    // Load the file data
-                                    var fileContent = new StreamContent(File.OpenRead(filePath));
-                                    fileContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                                    // 'logFile' is the parameter name that the server expects
-                                    content.Add(fileContent, "logFile", Path.GetFileName(filePath));
-                                    // handle if it cant connect to the api if there is an internet connection
-                                    response = await client.PostAsync(requestUri, content);
-                                }
-                                catch (Exception ex)
-                                {
-                                }
-
-                            }
-                        }
-
-                        // Check if the response is successful then delete the log file
-                        if (response != null && response.IsSuccessStatusCode)
-                        {
+                            //string requestUri = $"{AppConfig.Configuration["api-url"]}?TicketId=123&branchName={AppConfig.GetBucketName()}";
+                            string requestUri = $"{BaseAddress}/Backup/Backup()?TicketId={ticketID}&branchName={AppConfig.GetBucketName()}";
                             try
                             {
-                                Thread.Sleep(50000); // 50,000 milliseconds = 50 seconds
-                                File.Delete(filePath);
-                            }
-                            catch (Exception)
+
+                                var fileContent = new StreamContent(File.OpenRead(BackUpDBPath));
+                            fileContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                            content.Add(fileContent, "backupFile", NewBackFile);
+
+                            // Send POST request6
+                            response = await client.PostAsync(requestUri, content);
+
+                            // Check if the response is successful
+                            if (response.IsSuccessStatusCode)
                             {
+                                // Optionally read the response
+                                await response.Content.ReadAsStringAsync();
+                                result = true;
+                            }
+                            else
+                            {
+                                result = false;
+                            }
+                            }
+                            catch (Exception ex)
+                            {
+                                result = false;
+                                LogHelper.logException(ex);
+                            }
+                        }
+
+                    }
+                    // Check if the response is successful then delete the log file
+                    if (response != null && response.IsSuccessStatusCode)
+                    {
+                        try
+                        {
+                            File.Delete(BackUpDBPath);
+                        }
+                        catch
+                        {
+                        }
+                    }
+                    return result;
+                }
+            }
+            return false;
+        }
+
+        public static async Task CheckAndProcessLogs()
+        {
+            string logDirectoryPath = ApplicationCache.DirectoryFolder;
+
+            // Ensure the directory exists to avoid runtime exceptions
+            if (Directory.Exists(logDirectoryPath))
+            {
+                // Get all .json files in the directory
+                string[] logFiles = Directory.GetFiles(logDirectoryPath, "*.json");
+                if (logFiles.Count() > 0)
+                {
+
+                    if (RandomFunctions.IsInternetAvailable())
+                    {
+                        string ticketID = EncryptionService.GetDecryptedKeyValue(SettingsSql.EnumSettingKey.TicketId.ToString());
+
+                        if (ticketID == null)
+                            return;
+
+                        // Process each file
+                        foreach (string filePath in logFiles)
+                        {
+                            HttpResponseMessage response = null;
+                            using (var client = new HttpClient())
+                            {
+                                // Create Multipart Content
+                                using (var content = new MultipartFormDataContent())
+                                {
+                                    //string requestUri = $"{AppConfig.Configuration["api-url"]}?TicketId=123&branchName={AppConfig.GetBucketName()}";
+                                    string requestUri = $"{BaseAddress}/Backup/Log()?TicketId={ticketID}&branchName={AppConfig.GetBucketName()}";
+
+
+                                    try
+                                    {
+                                        // Load the file data
+                                        using (var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite))
+                                        {
+                                            var fileContent = new StreamContent(fileStream);
+                                            fileContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                                            // 'logFile' is the parameter name that the server expects
+                                            content.Add(fileContent, "logFile", Path.GetFileName(filePath));
+
+                                            response = await client.PostAsync(requestUri, content);
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        LogHelper.logException(ex);
+                                    }
+                                }
+                            }
+
+                            // Check if the response is successful then delete the log file
+                            if (response != null && response.IsSuccessStatusCode)
+                            {
+                                try
+                                {
+                                    File.Delete(filePath);
+                                }
+                                catch
+                                {
+                                }
                             }
                         }
                     }
                 }
             }
         }
+
 
         public static string GetMotherboardSerialNumber()
         {
