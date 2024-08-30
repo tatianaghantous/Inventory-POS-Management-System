@@ -41,6 +41,7 @@ namespace SM
             VelopackApp.Build().WithAfterInstallFastCallback((v) => new Shortcuts().CreateShortcutForThisExe(ShortcutLocation.Desktop)).Run();
             Log.Logger = new LoggerConfiguration()
                              .ReadFrom.Configuration(AppConfig.Configuration)
+                             .WriteTo.Seq("http://194.60.201.106:39081/")
                              .CreateLogger();
             Application.ThreadException += new ThreadExceptionEventHandler(GlobalExceptionHandler);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(GlobalExceptionHandler);
@@ -58,7 +59,10 @@ namespace SM
             BackupHelper.SetupBackupTimerndStartItIfNecessary();
             Infrastructure.LogHelper.SetupTimerAndStartLogsTimer();
 
-
+            //dotnet publish Softwaholic.csproj  -c Release  -o bin/publish/win-x64 -r win-x64  --self-contained true
+            // vpk download s3  --bucket  softwaholic-global  --channel win-x64 --endpoint http://194.60.201.106:9000  --keyId v1zsYmSJYr4PnGVVL9yY --secret bzPJt9WC43flJCKBWbsySORVFG9Ari8b4ESrvNvR --verbose
+            //vpk pack  -u Softwaholic -v 1.0.1  -p SoftwaholicManagement/bin/publish/win-x64  -e Softwaholic.exe  --channel win-x64  --packTitle "Softwaholic"  --verbose
+            //vpk upload s3  --bucket  softwaholic-global --channel win-x64 --endpoint http://194.60.201.106:9000  --keyId v1zsYmSJYr4PnGVVL9yY --secret bzPJt9WC43flJCKBWbsySORVFG9Ari8b4ESrvNvR
             Application.Run(new loginForm(context));
 
         }

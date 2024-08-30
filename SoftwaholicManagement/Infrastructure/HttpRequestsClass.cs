@@ -76,7 +76,7 @@ namespace SM.Infrastructure
                             catch (Exception ex)
                             {
                                 result = false;
-                                LogHelper.logException(ex);
+                               // LogHelper.logException(ex);
                             }
                         }
 
@@ -145,7 +145,7 @@ namespace SM.Infrastructure
                                     }
                                     catch (Exception ex)
                                     {
-                                        LogHelper.logException(ex);
+                                       // LogHelper.logException(ex);
                                     }
                                 }
                             }

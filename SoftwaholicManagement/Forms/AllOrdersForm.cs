@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using SM.Common_Functions;
 using SM.ViewModels;
 using SMDataLayer.Models;
+using System.Globalization;
 
 namespace SM
 {
@@ -69,7 +70,7 @@ namespace SM
                         Quantity = orderItem.Quantity,
                         SellerName = sellerName,
                         BuyerName = buyerName,
-                        OrderDateTime = DateTime.Parse(orderSummary.OrderDateTime),
+                        OrderDateTime = DateTime.ParseExact(orderSummary.OrderDateTime, "dd/MM/yyyy", CultureInfo.InvariantCulture),
                         TotalPrice = orderItem?.Item?.SellingPrice*orderItem?.Quantity,
                         TotalPriceAfterDiscount = orderItem.TotalPriceAfterDiscount
                     };
