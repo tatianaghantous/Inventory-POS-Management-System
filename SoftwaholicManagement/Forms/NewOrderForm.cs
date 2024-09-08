@@ -491,7 +491,8 @@ namespace SM
 
         private void AddingOSToDailySales(double totalGainInUSD, double totalSalesInUSD)
         {
-            var todaysSale = _dbContext.DailySales.FirstOrDefault(s => s.Date == DateTime.Today.Date.ToString());
+            string today = DateTime.Now.ToString("yyyy-MM-dd");
+            var todaysSale = _dbContext.DailySales.FirstOrDefault(s => s.Date == today);
             if (todaysSale != null)
             {
                 todaysSale.Profit = todaysSale.Profit + totalGainInUSD;
@@ -502,7 +503,7 @@ namespace SM
             {
                 DailySale newDailySale = new DailySale
                 {
-                    Date = DateTime.Now.Date.ToString(),
+                    Date = DateTime.Now.ToString("yyyy-MM-dd"),
                     Profit = totalGainInUSD,
                     TotalSales = totalSalesInUSD,
                     StartingBalance = 0,
@@ -516,9 +517,9 @@ namespace SM
         {
                     orderSummary = new OrderSummary
                     {
-                        OrderDateTime = DateTime.Now.ToString(),
+                        OrderDateTime = DateTime.Now.ToString("dd/MM/yyyy"),
                         SellerId = sellerId,
-                        OrderDate = DateTime.Now.Date.ToString(),
+                        OrderDate = DateTime.Now.ToString("yyyy-MM-dd"),
                         TotalInUsd = 0,
                         GainInUsd = 0,
                         BuyerId = null,

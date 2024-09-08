@@ -37,8 +37,6 @@ namespace SM
             _dbContext = dbContext;
         }
 
-        
-
         public static Form ShowForm<T>(T cachedForm, Func<T> createForm) where T : Form
         {          
             if(cachedForm == null || cachedForm.IsDisposed)
@@ -82,14 +80,16 @@ namespace SM
 
         private void ReturnsBtn_Click(object sender, EventArgs e)
         {
-            cachedReturnsForm = ShowForm(cachedReturnsForm, () => new ReturnsForm(_dbContext)) as ReturnsForm;
+            ReturnsForm cachedReturnsForm = new ReturnsForm(_dbContext);
+            cachedReturnsForm.Show();
             cachedReturnsForm.setFocusToTextBox();
             this.Hide();
         }
 
         private void checkInButton_Click(object sender, EventArgs e)
         {
-            cachedCheckInOutForm = ShowForm(cachedCheckInOutForm, () => new checkInOutForm(_dbContext)) as checkInOutForm;
+            checkInOutForm cachedCheckInOutForm = new checkInOutForm(_dbContext);
+            cachedCheckInOutForm.Show();
             this.Hide();
         }
 
@@ -112,10 +112,8 @@ namespace SM
         {
             if (loginForm.currentUser.HasPermission == 1)
             {
-                //InventoryForm inventoryForm = new InventoryForm(_dbContext, true, 0);
-                //inventoryForm.Show();
-                //this.Hide();
-                cachedInventoryForm = ShowForm(cachedInventoryForm, () => new InventoryForm(_dbContext, true, 0)) as InventoryForm;
+                InventoryForm inventoryForm = new InventoryForm(_dbContext, true, 0);
+                inventoryForm.Show();
                 this.Hide();
             }
         }
@@ -124,7 +122,8 @@ namespace SM
         {
             if (loginForm.currentUser.HasPermission == 1)
             {
-                cachedAllOrdersForm = ShowForm(cachedAllOrdersForm, () => new AllOrdersForm(_dbContext)) as AllOrdersForm;
+                AllOrdersForm cachedAllOrdersForm = new AllOrdersForm(_dbContext);
+                cachedAllOrdersForm.Show();
                 cachedAllOrdersForm.InitializeForm();
                 this.Hide();
             }
@@ -134,8 +133,10 @@ namespace SM
         {
             if (loginForm.currentUser.HasPermission == 1)
             {
-                cachedProductsForm = ShowForm(cachedProductsForm, () => new ProductsForm(_dbContext)) as ProductsForm;
+                ProductsForm productsForm = new ProductsForm(_dbContext);
+                productsForm.Show();
                 this.Hide();
+  
             }
         }
 
@@ -143,7 +144,8 @@ namespace SM
         {
             if (loginForm.currentUser.HasPermission == 1)
             {
-                cachedCategoriesForm = ShowForm(cachedCategoriesForm, () => new CategoriesForm(_dbContext, true)) as CategoriesForm;
+                CategoriesForm cachedCategoriesForm = new CategoriesForm(_dbContext, true);
+                cachedCategoriesForm.Show();
                 this.Hide();
             }
         }
@@ -157,7 +159,8 @@ namespace SM
         {
             if (loginForm.currentUser.HasPermission == 1)
             {
-                cachedUnpaidOrdersForm = ShowForm(cachedUnpaidOrdersForm, () => new UnpaidOrdersForm(_dbContext)) as UnpaidOrdersForm;
+                UnpaidOrdersForm cachedUnpaidOrdersForm = new UnpaidOrdersForm(_dbContext);
+                cachedUnpaidOrdersForm.Show();
                 cachedUnpaidOrdersForm.InitializeData();
                 this.Hide();
             }

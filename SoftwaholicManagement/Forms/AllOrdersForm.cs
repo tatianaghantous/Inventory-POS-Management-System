@@ -65,6 +65,7 @@ namespace SM
                         OrderId = orderSummary.OrderId,
                         OrderItemId = orderItem.OrderItemId,
                         ItemId = orderItem.ItemId,
+                        Barcode = orderItem.Item.BarcodeId,
                         ProductName = orderItem.Item?.Name,
                         ProductPrice = orderItem.Item?.SellingPrice,
                         Quantity = orderItem.Quantity,
@@ -222,7 +223,7 @@ namespace SM
         public List<Service> FilterServicesByDate(DateTime date)
         {
             return new List<Service>( _services
-                .Where(s => s.ServiceDate == date.Date.ToString())
+                .Where(s => s.ServiceDate == date.Date.ToString("yyyy-MM-dd"))
                 .ToList()
                 );
         }
@@ -257,7 +258,13 @@ namespace SM
                 ReadOnly = true,
                 Visible = false
             });
-
+            AllOrdersDataGridView.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Barcode",
+                DataPropertyName = "Barcode",
+                Name = "Barcode",
+                ReadOnly = true
+            });
             AllOrdersDataGridView.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Product Name",
@@ -447,7 +454,7 @@ namespace SM
         }
         private void RemovingSalesFromTodaysSales(double totalSalesInUSD)
         {
-            var todaysSale = _dbContext.DailySales.FirstOrDefault(s => s.Date == DateTime.Today.Date.ToString());
+            var todaysSale = _dbContext.DailySales.FirstOrDefault(s => s.Date == DateTime.Today.ToString("yyyy-MM-dd"));
             if (todaysSale != null)
             {
                 todaysSale.TotalSales = todaysSale.TotalSales - totalSalesInUSD;
@@ -457,7 +464,7 @@ namespace SM
             {
                 DailySale newDailySale = new DailySale
                 {
-                    Date = DateTime.Now.Date.ToString(),
+                    Date = DateTime.Now.ToString("yyyy-MM-dd"),
                     Profit = 0,
                     TotalSales = -totalSalesInUSD,
                     StartingBalance = 0,
@@ -512,7 +519,7 @@ namespace SM
                                 dailySale.Profit += price / newOi.Quantity - newOi.UnitPriceAfterDiscount;
 
                             }
-                            var todaysSale = _dbContext.DailySales.FirstOrDefault(s => s.Date == DateTime.Today.Date.ToString());
+                            var todaysSale = _dbContext.DailySales.FirstOrDefault(s => s.Date == DateTime.Today.ToString("yyyy-MM-dd"));
                             if (todaysSale != null)
                             {
                                 todaysSale.TotalSales = todaysSale.TotalSales + price / newOi.Quantity - newOi.UnitPriceAfterDiscount;
@@ -522,7 +529,7 @@ namespace SM
                             {
                                 DailySale newDailySale = new DailySale
                                 {
-                                    Date = DateTime.Now.Date.ToString(),
+                                    Date = DateTime.Now.ToString("yyyy-MM-dd"),
                                     Profit = 0,
                                     TotalSales = price / newOi.Quantity - newOi.UnitPriceAfterDiscount,
                                     StartingBalance = 0,
