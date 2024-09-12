@@ -23,7 +23,7 @@ namespace ClothingStore.UI
             _dbContext = dbContext;
 
             DateTime today = DateTime.Now.Date;
-            dailySale = _dbContext.DailySales.FirstOrDefault(s => s.Date == today.ToString());
+            dailySale = _dbContext.DailySales.FirstOrDefault(s => s.Date == today.ToString("yyyy-MM-dd"));
             InitializingFields(today);
             if (dailySale == null)
                 fillDailySale();
@@ -62,7 +62,7 @@ namespace ClothingStore.UI
                     double startingBalance = double.Parse(startingBalanceTextBox.Text);
 
                     var totalSum = _dbContext.OrderSummaries
-                        .Where(summary => summary.OrderDate == today.ToString()) // Filter by OrderDate
+                        .Where(summary => summary.OrderDate == today.ToString("yyyy-MM-dd")) // Filter by OrderDate
                         .SelectMany(summary => summary.OrderItems) // Flatten to OrderItems
                         .Where(item => item.IsPaid == 1) // Filter by IsPaid
                         .Sum(item => item.Quantity * item.PriceUsd); // Calculate the total sum
@@ -85,7 +85,7 @@ namespace ClothingStore.UI
 
                         DailySale dailySale = new DailySale
                         {
-                            Date = DateTime.Now.Date.ToString(),
+                            Date = DateTime.Now.Date.ToString("yyyy-MM-dd"),
                             StartingBalance = 0,
                             EndBalance = 0,
                             Profit = 0,
@@ -169,7 +169,8 @@ namespace ClothingStore.UI
                 {
 
                     double? profit = 0;
-                    var todaysSale = _dbContext.DailySales.FirstOrDefault(s => s.Date == DateTime.Today.Date.ToString());
+                     string today = DateTime.Now.Date.ToString("yyyy-MM-dd");
+                    var todaysSale = _dbContext.DailySales.FirstOrDefault(s => s.Date == today);
                     if (todaysSale != null)
                     {
                         profit = todaysSale.Profit;

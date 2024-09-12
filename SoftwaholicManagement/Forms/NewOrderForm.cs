@@ -333,8 +333,10 @@ namespace SM
                 {                 
                     var orderItem = orderItems.FirstOrDefault(o => o.Item.BarcodeId == scannedData);
                     AddOrderItemToList(scannedData, product, orderItem);
+                if(orderItem != null)
+                    UpdateTotalAfterDiscount(orderItem);
                     totalAfterDiscountTxtBox.Text = CalculateTotalAfterDiscount().ToString();
-                }
+            }
                 else
                 {
                     MessageBox.Show("Product not found.");
@@ -416,7 +418,17 @@ namespace SM
 
                 }
         }
-
+        public void UpdateTotalAfterDiscount(OrderItem existingOrderItem) {
+            OrderViewModel selectedOrderItem = bindingList.FirstOrDefault(item => item.Barcode == existingOrderItem.Item.BarcodeId);
+            if (selectedOrderItem.UnitPriceAfterDiscount != null)
+            {
+                OrderItem? itemToUpdate = orderItems.FirstOrDefault(oitem => oitem.Item.BarcodeId == selectedOrderItem.Barcode);
+                itemToUpdate.TotalPriceAfterDiscount = selectedOrderItem.UnitPriceAfterDiscount * itemToUpdate.Quantity;
+                selectedOrderItem.TotalPriceAfterDiscount = selectedOrderItem.UnitPriceAfterDiscount * itemToUpdate.Quantity;
+                source.ResetBindings(false);
+                totalAfterDiscountTxtBox.Text = CalculateTotalAfterDiscount().ToString();
+            }
+        }
         private void ConfirmOrderButton_Click(object sender, EventArgs e)
         {
 
@@ -432,11 +444,12 @@ namespace SM
 
                         NewOrderDataGridView.Rows.Clear();
 
-                        double totalGainInUSD = 0;
-                        double totalInitialCost = 0;
+                        double? totalGainInUSD = 0;
+                        double? totalInitialCost = 0;
                         double totalSalesInUSD = 0;
                         double sellingPrice = 0;
                         double initialCost = 0;
+                        double totalAfterDiscount = 0;
 
                         foreach (OrderItem orderItem in orderItems)
                         {
@@ -444,31 +457,20 @@ namespace SM
                             DecrementProductQuantityInDb(orderItem, transaction);
                              sellingPrice = (double)(orderItem.Item.SellingPrice);
                              initialCost = (double)(orderItem.Item.InitialPrice);
-                            totalGainInUSD = (double)(totalGainInUSD + ((sellingPrice - initialCost) * orderItem.Quantity));
-                            totalSalesInUSD = totalSalesInUSD + sellingPrice;
-                            totalInitialCost += initialCost;
+                    double valueToAdd = (double)(orderItem.UnitPriceAfterDiscount == null || (double)(orderItem.UnitPriceAfterDiscount) == (double)0 ? sellingPrice * orderItem.Quantity : (double)(orderItem.UnitPriceAfterDiscount)* orderItem.Quantity);
+                             totalAfterDiscount = (double)(totalAfterDiscount + valueToAdd);
+                            totalInitialCost += initialCost*orderItem.Quantity;
                         }
 
-                        _dbContext.OrderItems.AddRange(orderItems);
+                             _dbContext.OrderItems.AddRange(orderItems);
 
-                        if (totalAfterDiscountTxtBox.Text != "")
-                        {
-                            double totalAfterDiscount = double.Parse(totalAfterDiscountTxtBox.Text);
-                            //decimal discountedMoney = totalSalesInUSD - totalAfterDiscount;
                             totalGainInUSD = totalAfterDiscount - totalInitialCost;
-                           // totalSalesInUSD = totalSalesInUSD - discountedMoney;
                             orderSummary.GainInUsd = totalGainInUSD;
                             orderSummary.TotalInUsd = totalSalesInUSD;
                             orderSummary.TotalAfterDiscountInUsd = totalAfterDiscount;
-                            _dbContext.SaveChanges();
+
                             totalSalesInUSD = totalAfterDiscount;
-                        }
-                        else
-                        {
-                            orderSummary.GainInUsd = totalGainInUSD;
-                            orderSummary.TotalInUsd = totalSalesInUSD;
-                            _dbContext.SaveChanges();
-                        }
+  
                         if (notPaidCheckBox != null && notPaidCheckBox.Checked)
                         {
                             foreach (var orderItem in orderSummary.OrderItems)
@@ -476,10 +478,9 @@ namespace SM
                                 orderItem.IsPaid = 0;
                             }
                             orderSummary.IsPaid = 0;
-                            _dbContext.SaveChanges();
                         }
 
-                        AddingOSToDailySales(totalGainInUSD, totalSalesInUSD);
+                        AddingOSToDailySales(totalGainInUSD, totalAfterDiscount);
                         transaction.Commit();
                         customerNameTextBox.Text = "";
                         navigateToIntroForm();
@@ -489,14 +490,14 @@ namespace SM
 
         }
 
-        private void AddingOSToDailySales(double totalGainInUSD, double totalSalesInUSD)
+        private void AddingOSToDailySales(double? totalGainInUSD, double totalAfterDiscount)
         {
             string today = DateTime.Now.ToString("yyyy-MM-dd");
             var todaysSale = _dbContext.DailySales.FirstOrDefault(s => s.Date == today);
             if (todaysSale != null)
             {
                 todaysSale.Profit = todaysSale.Profit + totalGainInUSD;
-                todaysSale.TotalSales = todaysSale.TotalSales + totalSalesInUSD;
+                todaysSale.TotalSales = todaysSale.TotalSales + totalAfterDiscount;
                 _dbContext.SaveChanges();
             }
             else
@@ -505,7 +506,7 @@ namespace SM
                 {
                     Date = DateTime.Now.ToString("yyyy-MM-dd"),
                     Profit = totalGainInUSD,
-                    TotalSales = totalSalesInUSD,
+                    TotalSales = totalAfterDiscount,
                     StartingBalance = 0,
                     EndBalance = 0
                 };
@@ -544,6 +545,7 @@ namespace SM
                         RemovingOrderItemFromBindingSource();
                     }
                         totalTextBox.Text = total.ToString();
+                        totalAfterDiscountTxtBox.Text = CalculateTotalAfterDiscount().ToString();
                         setFocusToTextBox();
                 }
         }

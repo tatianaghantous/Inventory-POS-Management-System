@@ -33,7 +33,7 @@ namespace ClothingStore.UI
             _dbContext = dbContext;
             long sellerId = loginForm.currentUser.LoginId;
             DateTime today = DateTime.Now.Date;
-            dailySale = _dbContext.DailySales.FirstOrDefault(s => s.Date == today.ToString());
+            dailySale = _dbContext.DailySales.FirstOrDefault(s => s.Date == today.ToString("yyyy-MM-dd"));
             if (dailySale == null)
                 newDailySale();
             InitializingFields();
@@ -46,7 +46,7 @@ namespace ClothingStore.UI
 
                         DailySale dailySale = new DailySale
                         {
-                            Date = DateTime.Now.Date.ToString(),
+                            Date = DateTime.Now.Date.ToString("yyyy-MM-dd"),
                             StartingBalance = 0,
                             EndBalance = 0,
                             Profit = 0,
