@@ -25,8 +25,11 @@ namespace SM
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-                Account user = _dbContext.Accounts.FirstOrDefault(a => a.Username == usernameTextBox.Text && a.Password == passwordTextBox.Text);
-                if (user == null)
+            Account user = _dbContext.Accounts
+                .FirstOrDefault(a => a.Username.ToLower() == usernameTextBox.Text.ToLower()
+                                     && a.Password.ToLower() == passwordTextBox.Text.ToLower());
+
+            if (user == null)
                     MessageBox.Show("Invalid Username or Password");
                 else
                 {
