@@ -446,7 +446,7 @@ namespace SM
 
                         double? totalGainInUSD = 0;
                         double? totalInitialCost = 0;
-                        double totalSalesInUSD = 0;
+                        double? totalSalesInUSD = 0;
                         double sellingPrice = 0;
                         double initialCost = 0;
                         double totalAfterDiscount = 0;
@@ -457,7 +457,8 @@ namespace SM
                             DecrementProductQuantityInDb(orderItem, transaction);
                              sellingPrice = (double)(orderItem.Item.SellingPrice);
                              initialCost = (double)(orderItem.Item.InitialPrice);
-                    double valueToAdd = (double)(orderItem.UnitPriceAfterDiscount == null || (double)(orderItem.UnitPriceAfterDiscount) == (double)0 ? sellingPrice * orderItem.Quantity : (double)(orderItem.UnitPriceAfterDiscount)* orderItem.Quantity);
+                             totalSalesInUSD += sellingPrice * orderItem.Quantity;
+                            double valueToAdd = (double)(orderItem.UnitPriceAfterDiscount == null || (double)(orderItem.UnitPriceAfterDiscount) == (double)0 ? sellingPrice * orderItem.Quantity : (double)(orderItem.UnitPriceAfterDiscount)* orderItem.Quantity);
                              totalAfterDiscount = (double)(totalAfterDiscount + valueToAdd);
                             totalInitialCost += initialCost*orderItem.Quantity;
                         }
