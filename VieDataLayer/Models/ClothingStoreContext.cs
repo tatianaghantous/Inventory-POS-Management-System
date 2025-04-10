@@ -75,7 +75,16 @@ public partial class ClothingStoreContext : DbContext
 
             entity.Property(e => e.BranchId).HasColumnName("BranchID");
         });
-
+        modelBuilder.Entity<Account>().HasData(
+            new Account
+            {
+                LoginId = 4,
+                Username = "admin",
+                Password = "123",
+                HasPermission = 1
+                // Initialize other required properties
+            }
+        );
         modelBuilder.Entity<Branch>(entity =>
         {
             entity.Property(e => e.BranchId).HasColumnName("BranchID");

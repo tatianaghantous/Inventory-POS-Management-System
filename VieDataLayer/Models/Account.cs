@@ -26,4 +26,5 @@ public partial class Account
     public virtual ICollection<OrderSummary> OrderSummaries { get; set; } = new List<OrderSummary>();
 
     public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
+    
 }

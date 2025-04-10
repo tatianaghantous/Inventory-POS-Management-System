@@ -30,16 +30,21 @@ namespace SM
                                      && a.Password.ToLower() == passwordTextBox.Text.ToLower());
 
             if (user == null)
-                    MessageBox.Show("Invalid Username or Password");
-                else
-                {
-                    navigateToIntroForm();
-                    currentUser = user;
-                    Program.UpdateMyApp();
-                }
+                MessageBox.Show("Invalid Username or Password");
+            else
+            {
+                navigateToIntroForm();
+                currentUser = user;
+                Program.UpdateMyApp();
+            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void storeNameLabel_Click(object sender, EventArgs e)
         {
 
         }
